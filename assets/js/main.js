@@ -18,14 +18,9 @@ const store = {
 };
 
 /* ---------- Başarımlar ---------- */
+// Başlık ve açıklamalar i18n.js'te: ach.<id>.t / ach.<id>.d
 const ACHIEVEMENTS = {
-  start:    { title: "Yeni Oyun Başladı", desc: "NexVory'ye hoş geldin, oyuncu.", icon: "🎮" },
-  buttons:  { title: "Buton Ezici", desc: "Kolun tuşlarına 10 kez bastın.", icon: "🕹️" },
-  curious:  { title: "Meraklı Çiftçi", desc: "Farmaro Islands'a göz attın.", icon: "🌴" },
-  explorer: { title: "Kaşif", desc: "Sitenin sonuna kadar geldin.", icon: "🗺️" },
-  contact:  { title: "İlk Temas", desc: "Bize mesaj gönderdin.", icon: "✉️" },
-  insider:  { title: "İçeriden Biri", desc: "Bültene katıldın.", icon: "📬" },
-  konami:   { title: "Efsane Kod", desc: "↑↑↓↓←→←→BA. Klasik.", icon: "👾" },
+  start: "🎮", buttons: "🕹️", curious: "🌴", explorer: "🗺️", contact: "✉️", insider: "📬", konami: "👾",
 };
 const unlocked = new Set(store.get("nv_achievements", []));
 const achQueue = [];
@@ -35,18 +30,18 @@ function unlock(id) {
   if (unlocked.has(id) || !ACHIEVEMENTS[id]) return;
   unlocked.add(id);
   store.set("nv_achievements", [...unlocked]);
-  achQueue.push(ACHIEVEMENTS[id]);
+  achQueue.push(id);
   if (!achBusy) showNextAchievement();
 }
 
 function showNextAchievement() {
-  const a = achQueue.shift();
-  if (!a) { achBusy = false; return; }
+  const id = achQueue.shift();
+  if (!id) { achBusy = false; return; }
   achBusy = true;
   const el = $("#achievement");
-  $(".achievement__icon", el).textContent = a.icon;
-  $("#achTitle").textContent = a.title;
-  $("#achDesc").textContent = a.desc;
+  $(".achievement__icon", el).textContent = ACHIEVEMENTS[id];
+  $("#achTitle").textContent = t(`ach.${id}.t`);
+  $("#achDesc").textContent = t(`ach.${id}.d`);
   el.classList.add("is-show");
   setTimeout(() => {
     el.classList.remove("is-show");
@@ -362,15 +357,16 @@ function initContact() {
       bad.forEach((f) => f.classList.add("is-invalid"));
       bad[0].focus();
       msg.classList.add("is-err");
-      msg.textContent = "Lütfen işaretli alanları doldur.";
+      msg.textContent = t("form.err");
       return;
     }
 
-    const subject = `NexVory Sitesi: ${select.value} — ${name.value.trim()}`;
+    const topic = select.selectedOptions[0].textContent.trim();
+    const subject = `${t("mail.prefix")}: ${topic} — ${name.value.trim()}`;
     const body = [
-      `Ad Soyad: ${name.value.trim()}`,
-      `E-posta: ${email.value.trim()}`,
-      `Konu: ${select.value}`,
+      `${t("mail.name")}: ${name.value.trim()}`,
+      `${t("mail.email")}: ${email.value.trim()}`,
+      `${t("mail.subject")}: ${topic}`,
       "",
       message.value.trim(),
     ].join("\n");
@@ -378,7 +374,7 @@ function initContact() {
     const { gmail } = openMail(subject, body);
 
     msg.classList.add("is-ok");
-    msg.innerHTML = `Mail uygulaman açılıyor, mesajı oradan <b>Gönder</b>'e basarak yolla. Açılmadıysa <a href="${gmail}" target="_blank" rel="noopener">Gmail ile gönder</a> ya da <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> adresine yaz.`;
+    msg.innerHTML = t("form.ok", { gmail, email: CONTACT_EMAIL });
     unlock("contact");
   });
 }
@@ -396,9 +392,9 @@ function initNewsletter() {
       return;
     }
     input.classList.remove("is-invalid");
-    openMail("NexVory Bülten Kaydı", `Merhaba NexVory,\n\nBültene katılmak istiyorum: ${value}`);
+    openMail(t("nl.mailSubject"), t("nl.mailBody", { email: value }));
     input.value = "";
-    input.placeholder = "Mail uygulamandan gönder 📬";
+    input.placeholder = t("nl.sent");
     unlock("insider");
   });
 }

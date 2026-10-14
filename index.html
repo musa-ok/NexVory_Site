@@ -38,24 +38,28 @@
       <span class="xp__fill" id="xpFill"></span>
     </div>
     <div class="container nav__inner">
-      <a href="#top" class="brand" aria-label="NexVory Games ana sayfa">
+      <a href="#top" class="brand" aria-label="NexVory Games ana sayfa" data-i18n-attr="aria-label:a11y.home">
         <span class="brand__mark">N</span>
         <span class="brand__text">NexVory<small>GAMES</small></span>
       </a>
 
-      <nav class="nav__links" id="navLinks" aria-label="Ana menü">
-        <a href="#about">Hakkımızda</a>
-        <a href="#games">Oyunlar</a>
-        <a href="#services">Ne Yapıyoruz</a>
-        <a href="#journey">Yolculuk</a>
-        <a href="#careers">Kariyer</a>
-        <a href="#contact">İletişim</a>
+      <nav class="nav__links" id="navLinks" aria-label="Ana menü" data-i18n-attr="aria-label:a11y.menu">
+        <a href="#about" data-i18n="nav.about">Hakkımızda</a>
+        <a href="#games" data-i18n="nav.games">Oyunlar</a>
+        <a href="#services" data-i18n="nav.services">Ne Yapıyoruz</a>
+        <a href="#journey" data-i18n="nav.journey">Yolculuk</a>
+        <a href="#careers" data-i18n="nav.careers">Kariyer</a>
+        <a href="#contact" data-i18n="nav.contact">İletişim</a>
       </nav>
 
       <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Dil / Language">
+          <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <span class="xp__label" id="xpLabel">LV 1</span>
-        <a href="#contact" class="btn btn--primary btn--sm">Bize Ulaş</a>
-        <button class="nav__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <a href="#contact" class="btn btn--primary btn--sm" data-i18n="nav.cta">Bize Ulaş</a>
+        <button class="nav__burger" id="burger" aria-label="Menüyü aç" data-i18n-attr="aria-label:a11y.burger" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -72,30 +76,30 @@
 
       <div class="container hero__grid">
         <div class="hero__text">
-          <p class="tag reveal"><span class="tag__dot"></span> Bağımsız Oyun Stüdyosu</p>
-          <h1 class="hero__title reveal">
+          <p class="tag reveal"><span class="tag__dot"></span> <span data-i18n="hero.tag">Bağımsız Oyun Stüdyosu</span></p>
+          <h1 class="hero__title reveal" data-i18n="hero.title">
             Oyna.<br/>
             <span class="grad">Hisset.</span><br/>
             Unutma.
           </h1>
-          <p class="hero__lead reveal">
+          <p class="hero__lead reveal" data-i18n="hero.lead">
             NexVory Games olarak PC ve konsollar için içine girince çıkmak istemeyeceğin
             oyun dünyaları kuruyoruz. Küçük ekip, büyük tutku.
           </p>
           <div class="hero__cta reveal">
-            <a href="#games" class="btn btn--primary btn--lg">Oyunlarımız <span aria-hidden="true">→</span></a>
-            <a href="#careers" class="btn btn--ghost btn--lg">Ekibe Katıl</a>
+            <a href="#games" class="btn btn--primary btn--lg" data-i18n="hero.cta1">Oyunlarımız <span aria-hidden="true">→</span></a>
+            <a href="#careers" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Ekibe Katıl</a>
           </div>
-          <ul class="hero__platforms reveal" aria-label="Platformlar">
+          <ul class="hero__platforms reveal" aria-label="Platformlar" data-i18n-attr="aria-label:a11y.platforms">
             <li><span class="ico ico--pc"></span>PC</li>
-            <li><span class="ico ico--console"></span>Konsol</li>
+            <li><span class="ico ico--console"></span><span data-i18n="hero.console">Konsol</span></li>
             <li><span class="ico ico--pad"></span>Co-op</li>
           </ul>
         </div>
 
         <!-- Konsol + kol illüstrasyonu (saf SVG, markasız) -->
         <div class="hero__art reveal" id="heroArt">
-          <svg viewBox="0 0 700 640" role="img" aria-label="Oyun konsolu ve oyun kolu illüstrasyonu">
+          <svg viewBox="0 0 700 640" role="img" aria-label="Oyun konsolu ve oyun kolu illüstrasyonu" data-i18n-attr="aria-label:a11y.art">
             <defs>
               <linearGradient id="gBody" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#25223f"/>
@@ -213,7 +217,7 @@
               <g class="float float--fast"><rect x="640" y="250" width="26" height="26" rx="4" stroke="#a3e635"/></g>
             </g>
           </svg>
-          <p class="hero__art-hint">Tuşlara basmayı dene 🎮</p>
+          <p class="hero__art-hint" data-i18n="hero.hint">Tuşlara basmayı dene 🎮</p>
         </div>
       </div>
     </section>
@@ -221,8 +225,8 @@
     <!-- ============ MARQUEE ============ -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>PC</span><i>◆</i><span>KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span>OYUN TASARIMI</span><i>◆</i><span>SANAT</span><i>◆</i><span>MÜZİK</span><i>◆</i><span>TOPLULUK</span><i>◆</i>
-        <span>PC</span><i>◆</i><span>KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span>OYUN TASARIMI</span><i>◆</i><span>SANAT</span><i>◆</i><span>MÜZİK</span><i>◆</i><span>TOPLULUK</span><i>◆</i>
+        <span>PC</span><i>◆</i><span data-i18n="mq.console">KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span data-i18n="mq.design">OYUN TASARIMI</span><i>◆</i><span data-i18n="mq.art">SANAT</span><i>◆</i><span data-i18n="mq.music">MÜZİK</span><i>◆</i><span data-i18n="mq.community">TOPLULUK</span><i>◆</i>
+        <span>PC</span><i>◆</i><span data-i18n="mq.console">KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span data-i18n="mq.design">OYUN TASARIMI</span><i>◆</i><span data-i18n="mq.art">SANAT</span><i>◆</i><span data-i18n="mq.music">MÜZİK</span><i>◆</i><span data-i18n="mq.community">TOPLULUK</span><i>◆</i>
       </div>
     </div>
 
@@ -230,47 +234,47 @@
     <section class="section" id="about">
       <div class="container about">
         <div class="about__text">
-          <span class="eyebrow reveal">01 · Hakkımızda</span>
-          <h2 class="h2 reveal">Oyunları <span class="grad">oyuncu olarak</span> yapıyoruz.</h2>
-          <p class="reveal">
+          <span class="eyebrow reveal" data-i18n="about.eyebrow">01 · Hakkımızda</span>
+          <h2 class="h2 reveal" data-i18n="about.title">Oyunları <span class="grad">oyuncu olarak</span> yapıyoruz.</h2>
+          <p class="reveal" data-i18n="about.p1">
             NexVory Games, oyun oynamayı oyun yapmak kadar seven bir ekibin kurduğu bağımsız bir
             stüdyo. Çocukken saatlerce başından kalkamadığımız oyunların verdiği hissi bugünün
             oyuncularına yaşatmak istiyoruz.
           </p>
-          <p class="reveal">
+          <p class="reveal" data-i18n="about.p2">
             Her projede aynı soruyu soruyoruz: <strong>"Bunu biz oynamak ister miydik?"</strong>
             Cevap evet değilse, tekrar çizim masasına dönüyoruz.
           </p>
         </div>
 
         <div class="about__stats">
-          <div class="stat reveal"><strong><span data-count="1">0</span></strong><span>Yolda olan oyun</span></div>
-          <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><span>Bağımsız</span></div>
-          <div class="stat reveal"><strong>∞</strong><span>Fikir defteri</span></div>
-          <div class="stat reveal"><strong>24/7</strong><span>Kahve makinesi</span></div>
+          <div class="stat reveal"><strong><span data-count="1">0</span></strong><span data-i18n="about.s1">Yolda olan oyun</span></div>
+          <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><span data-i18n="about.s2">Bağımsız</span></div>
+          <div class="stat reveal"><strong>∞</strong><span data-i18n="about.s3">Fikir defteri</span></div>
+          <div class="stat reveal"><strong>24/7</strong><span data-i18n="about.s4">Kahve makinesi</span></div>
         </div>
       </div>
 
       <div class="container values">
         <article class="value reveal">
           <span class="value__no">A</span>
-          <h3>Önce eğlence</h3>
-          <p>Her mekanik önce bizi eğlendirmeli. Eğlendirmiyorsa oyunda yeri yok.</p>
+          <h3 data-i18n="val.1t">Önce eğlence</h3>
+          <p data-i18n="val.1p">Her mekanik önce bizi eğlendirmeli. Eğlendirmiyorsa oyunda yeri yok.</p>
         </article>
         <article class="value reveal">
           <span class="value__no">B</span>
-          <h3>Zanaat</h3>
-          <p>Küçük detaylar büyük farklar yaratır. Bir tuşun hissine bile kafa yorarız.</p>
+          <h3 data-i18n="val.2t">Zanaat</h3>
+          <p data-i18n="val.2p">Küçük detaylar büyük farklar yaratır. Bir tuşun hissine bile kafa yorarız.</p>
         </article>
         <article class="value reveal">
           <span class="value__no">X</span>
-          <h3>Topluluk</h3>
-          <p>Oyunlarımızı oyuncularla birlikte büyütür, geri bildirimi kalbimize koyarız.</p>
+          <h3 data-i18n="val.3t">Topluluk</h3>
+          <p data-i18n="val.3p">Oyunlarımızı oyuncularla birlikte büyütür, geri bildirimi kalbimize koyarız.</p>
         </article>
         <article class="value reveal">
           <span class="value__no">Y</span>
-          <h3>Dürüstlük</h3>
-          <p>Kazanmak için öde yok, karanlık tasarım yok. Sadece iyi oyunlar.</p>
+          <h3 data-i18n="val.4t">Dürüstlük</h3>
+          <p data-i18n="val.4p">Kazanmak için öde yok, karanlık tasarım yok. Sadece iyi oyunlar.</p>
         </article>
       </div>
     </section>
@@ -279,8 +283,8 @@
     <section class="section games" id="games">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">02 · Oyunlar</span>
-          <h2 class="h2 reveal">Neler <span class="grad">pişiyor?</span></h2>
+          <span class="eyebrow reveal" data-i18n="games.eyebrow">02 · Oyunlar</span>
+          <h2 class="h2 reveal" data-i18n="games.title">Neler <span class="grad">pişiyor?</span></h2>
         </div>
 
         <div class="games__grid">
@@ -320,20 +324,20 @@
                 <path d="M0 222 Q30 214 60 222 T120 222 T180 222 T240 222 T300 222 T360 222 T420 222 T480 222 V270 H0Z" fill="#1797b3"/>
                 <path d="M0 238 Q30 230 60 238 T120 238 T180 238 T240 238 T300 238 T360 238 T420 238 T480 238 V270 H0Z" fill="#0f6f93"/>
               </svg>
-              <span class="badge badge--soon">Yakında</span>
+              <span class="badge badge--soon" data-i18n="games.soon">Yakında</span>
             </div>
             <div class="game-card__body">
               <h3 class="farmaro-logo">Farmaro <span>Islands</span></h3>
-              <p>
+              <p data-i18n="games.farmaro">
                 Fırtınanın ardından terk edilmiş bir takımadayı tohum tohum yeniden canlandır.
                 Çiftlik, keşif ve arkadaşlarınla co-op dolu, sıcacık bir ada macerası.
               </p>
               <ul class="chips">
-                <li>Çiftlik</li><li>Keşif</li><li>Co-op</li><li>PC</li>
+                <li data-i18n="games.farming">Çiftlik</li><li data-i18n="games.exploration">Keşif</li><li>Co-op</li><li>PC</li>
               </ul>
               <div class="game-card__actions">
-                <button class="btn btn--primary" id="openFarmaro">Detayları Gör</button>
-                <a href="#newsletter" class="btn btn--ghost">Haberdar Ol</a>
+                <button class="btn btn--primary" id="openFarmaro" data-i18n="games.details">Detayları Gör</button>
+                <a href="#newsletter" class="btn btn--ghost" data-i18n="games.notify">Haberdar Ol</a>
               </div>
             </div>
           </article>
@@ -343,11 +347,11 @@
             <div class="game-card__art locked-art">
               <div class="locked-art__noise"></div>
               <span class="locked-art__icon">🔒</span>
-              <span class="badge">Gizli</span>
+              <span class="badge" data-i18n="games.secret">Gizli</span>
             </div>
             <div class="game-card__body">
-              <h3 class="glitch" data-text="PROJE ███">PROJE ███</h3>
-              <p>Henüz duyurmadık. Ama ipucu verelim: ışıklar kapalıyken oynanmalı. 👀</p>
+              <h3 class="glitch" data-text="PROJE ███" data-i18n="games.secretTitle" data-i18n-attr="data-text:games.secretTitle">PROJE ███</h3>
+              <p data-i18n="games.secretP">Henüz duyurmadık. Ama ipucu verelim: ışıklar kapalıyken oynanmalı. 👀</p>
               <ul class="chips"><li>???</li><li>???</li></ul>
             </div>
           </article>
@@ -359,41 +363,41 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">03 · Ne Yapıyoruz</span>
-          <h2 class="h2 reveal">Fikirden <span class="grad">konsola</span> kadar.</h2>
-          <p class="lead reveal">Bir oyunu ilk eskizden çıkış gününe kadar ekip içinde, kendi ellerimizle geliştiriyoruz.</p>
+          <span class="eyebrow reveal" data-i18n="srv.eyebrow">03 · Ne Yapıyoruz</span>
+          <h2 class="h2 reveal" data-i18n="srv.title">Fikirden <span class="grad">konsola</span> kadar.</h2>
+          <p class="lead reveal" data-i18n="srv.lead">Bir oyunu ilk eskizden çıkış gününe kadar ekip içinde, kendi ellerimizle geliştiriyoruz.</p>
         </div>
 
         <div class="services">
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6 L42 16 V32 L24 42 L6 32 V16Z"/><path d="M24 6 V42 M6 16 L42 32 M42 16 L6 32"/></svg>
-            <h3>Oyun Tasarımı</h3>
-            <p>Mekanikler, ekonomi, seviye tasarımı ve "bir tur daha" hissini yaratan döngüler.</p>
+            <h3 data-i18n="srv.1t">Oyun Tasarımı</h3>
+            <p data-i18n="srv.1p">Mekanikler, ekonomi, seviye tasarımı ve "bir tur daha" hissini yaratan döngüler.</p>
           </article>
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="17" cy="19" r="3"/><circle cx="28" cy="15" r="3"/><circle cx="33" cy="25" r="3"/><path d="M22 41 Q20 32 27 31"/></svg>
-            <h3>Sanat &amp; Animasyon</h3>
-            <p>Karakterler, dünyalar, arayüz ve her kareye karakter katan animasyonlar.</p>
+            <h3 data-i18n="srv.2t">Sanat &amp; Animasyon</h3>
+            <p data-i18n="srv.2p">Karakterler, dünyalar, arayüz ve her kareye karakter katan animasyonlar.</p>
           </article>
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 14 L6 24 L16 34"/><path d="M32 14 L42 24 L32 34"/><path d="M27 10 L21 38"/></svg>
-            <h3>Programlama</h3>
-            <p>Oynanış sistemleri, araçlar ve her platformda akıcı çalışan performanslı kod.</p>
+            <h3 data-i18n="srv.3t">Programlama</h3>
+            <p data-i18n="srv.3p">Oynanış sistemleri, araçlar ve her platformda akıcı çalışan performanslı kod.</p>
           </article>
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M18 34 V10 L38 6 V30"/><circle cx="13" cy="34" r="5"/><circle cx="33" cy="30" r="5"/></svg>
-            <h3>Ses &amp; Müzik</h3>
-            <p>Dünyayı nefes alır hale getiren ses tasarımı ve akılda kalan müzikler.</p>
+            <h3 data-i18n="srv.4t">Ses &amp; Müzik</h3>
+            <p data-i18n="srv.4p">Dünyayı nefes alır hale getiren ses tasarımı ve akılda kalan müzikler.</p>
           </article>
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="18" r="6"/><circle cx="32" cy="18" r="6"/><path d="M6 38 Q6 28 16 28 Q22 28 24 32 Q26 28 32 28 Q42 28 42 38"/></svg>
-            <h3>Çok Oyunculu</h3>
-            <p>Arkadaşlarla birlikte oynanınca katlanan eğlence için co-op ve online altyapı.</p>
+            <h3 data-i18n="srv.5t">Çok Oyunculu</h3>
+            <p data-i18n="srv.5p">Arkadaşlarla birlikte oynanınca katlanan eğlence için co-op ve online altyapı.</p>
           </article>
           <article class="service reveal" data-tilt>
             <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 16 H34 Q42 16 43 26 L44 33 Q45 39 39 38 Q36 37 33 32 H15 Q12 37 9 38 Q3 39 4 33 L5 26 Q6 16 14 16Z"/><path d="M14 22 V28 M11 25 H17"/><circle cx="33" cy="23" r="1.5"/><circle cx="36" cy="27" r="1.5"/></svg>
-            <h3>PC &amp; Konsol</h3>
-            <p>Klavye-fare ve kol desteğiyle, büyük ekranda da elde de rahat oynanan oyunlar.</p>
+            <h3 data-i18n="srv.6t">PC &amp; Konsol</h3>
+            <p data-i18n="srv.6p">Klavye-fare ve kol desteğiyle, büyük ekranda da elde de rahat oynanan oyunlar.</p>
           </article>
         </div>
       </div>
@@ -403,34 +407,34 @@
     <section class="section journey" id="journey">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">04 · Yolculuk</span>
+          <span class="eyebrow reveal" data-i18n="jr.eyebrow">04 · Yolculuk</span>
           <h2 class="h2 reveal">Level by <span class="grad">level.</span></h2>
         </div>
 
         <ol class="levels">
           <li class="level is-done reveal">
             <span class="level__no">LV 1</span>
-            <h3>Stüdyo kuruldu</h3>
-            <p>Bir avuç oyun aşığı, bir fikir defteri ve bitmek bilmeyen kahve.</p>
-            <span class="level__state">✓ Tamamlandı</span>
+            <h3 data-i18n="jr.1t">Stüdyo kuruldu</h3>
+            <p data-i18n="jr.1p">Bir avuç oyun aşığı, bir fikir defteri ve bitmek bilmeyen kahve.</p>
+            <span class="level__state" data-i18n="jr.done">✓ Tamamlandı</span>
           </li>
           <li class="level is-done reveal">
             <span class="level__no">LV 2</span>
-            <h3>İlk prototipler</h3>
-            <p>Onlarca fikir denendi, en iyisi seçildi: Farmaro Islands doğdu.</p>
-            <span class="level__state">✓ Tamamlandı</span>
+            <h3 data-i18n="jr.2t">İlk prototipler</h3>
+            <p data-i18n="jr.2p">Onlarca fikir denendi, en iyisi seçildi: Farmaro Islands doğdu.</p>
+            <span class="level__state" data-i18n="jr.done">✓ Tamamlandı</span>
           </li>
           <li class="level is-active reveal">
             <span class="level__no">LV 3</span>
-            <h3>Farmaro geliştirmede</h3>
-            <p>Adalar, çiftlik sistemleri ve co-op altyapısı üzerinde çalışıyoruz.</p>
-            <span class="level__state">▶ Şu an buradayız</span>
+            <h3 data-i18n="jr.3t">Farmaro geliştirmede</h3>
+            <p data-i18n="jr.3p">Adalar, çiftlik sistemleri ve co-op altyapısı üzerinde çalışıyoruz.</p>
+            <span class="level__state" data-i18n="jr.now">▶ Şu an buradayız</span>
           </li>
           <li class="level reveal">
             <span class="level__no">LV 4</span>
-            <h3>Çıkış &amp; ötesi</h3>
-            <p>Farmaro'yu oyuncularla buluşturmak ve gizli projeyi açığa çıkarmak.</p>
-            <span class="level__state">🔒 Kilitli</span>
+            <h3 data-i18n="jr.4t">Çıkış &amp; ötesi</h3>
+            <p data-i18n="jr.4p">Farmaro'yu oyuncularla buluşturmak ve gizli projeyi açığa çıkarmak.</p>
+            <span class="level__state" data-i18n="jr.locked">🔒 Kilitli</span>
           </li>
         </ol>
       </div>
@@ -441,9 +445,9 @@
       <div class="container">
         <div class="careers__box">
           <div class="careers__intro">
-            <span class="eyebrow reveal">05 · Kariyer</span>
-            <h2 class="h2 reveal">Player 2 <span class="grad">aranıyor.</span></h2>
-            <p class="lead reveal">
+            <span class="eyebrow reveal" data-i18n="car.eyebrow">05 · Kariyer</span>
+            <h2 class="h2 reveal" data-i18n="car.title">Player 2 <span class="grad">aranıyor.</span></h2>
+            <p class="lead reveal" data-i18n="car.lead">
               Oyun yapmayı seven, öğrenmeye aç ve takım oyununa inanan insanlarla çalışmak istiyoruz.
               Aşağıda aradığın rolü göremiyorsan yine de yaz.
             </p>
@@ -451,24 +455,24 @@
 
           <ul class="jobs">
             <li class="job reveal">
-              <div><h3>Oyun Programcısı</h3><p>Oynanış sistemleri · Co-op</p></div>
-              <span class="job__type">Tam zamanlı</span>
-              <a class="job__apply" href="#contact" data-subject="Kariyer: Oyun Programcısı">Başvur →</a>
+              <div><h3 data-i18n="car.1t">Oyun Programcısı</h3><p data-i18n="car.1p">Oynanış sistemleri · Co-op</p></div>
+              <span class="job__type" data-i18n="car.full">Tam zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="job-dev" data-i18n="car.apply">Başvur →</a>
             </li>
             <li class="job reveal">
-              <div><h3>2D / 3D Sanatçı</h3><p>Çevre &amp; karakter</p></div>
-              <span class="job__type">Tam zamanlı</span>
-              <a class="job__apply" href="#contact" data-subject="Kariyer: 2D / 3D Sanatçı">Başvur →</a>
+              <div><h3 data-i18n="car.2t">2D / 3D Sanatçı</h3><p data-i18n="car.2p">Çevre &amp; karakter</p></div>
+              <span class="job__type" data-i18n="car.full">Tam zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="job-art" data-i18n="car.apply">Başvur →</a>
             </li>
             <li class="job reveal">
-              <div><h3>Oyun Tasarımcısı</h3><p>Ekonomi · Seviye tasarımı</p></div>
-              <span class="job__type">Yarı zamanlı</span>
-              <a class="job__apply" href="#contact" data-subject="Kariyer: Oyun Tasarımcısı">Başvur →</a>
+              <div><h3 data-i18n="car.3t">Oyun Tasarımcısı</h3><p data-i18n="car.3p">Ekonomi · Seviye tasarımı</p></div>
+              <span class="job__type" data-i18n="car.part">Yarı zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="job-design" data-i18n="car.apply">Başvur →</a>
             </li>
             <li class="job job--open reveal">
-              <div><h3>Açık Başvuru</h3><p>Kendini bize anlat</p></div>
-              <span class="job__type">Her zaman</span>
-              <a class="job__apply" href="#contact" data-subject="Kariyer: Açık Başvuru">Yaz →</a>
+              <div><h3 data-i18n="car.4t">Açık Başvuru</h3><p data-i18n="car.4p">Kendini bize anlat</p></div>
+              <span class="job__type" data-i18n="car.any">Her zaman</span>
+              <a class="job__apply" href="#contact" data-subject="job-open" data-i18n="car.write">Yaz →</a>
             </li>
           </ul>
         </div>
@@ -479,12 +483,12 @@
     <section class="section contact" id="contact">
       <div class="container contact__grid">
         <div class="contact__info">
-          <span class="eyebrow reveal">06 · İletişim</span>
-          <h2 class="h2 reveal">Hadi <span class="grad">konuşalım.</span></h2>
-          <p class="lead reveal">İş birliği, basın, yayıncılık ya da sadece selam vermek için. Mutlaka döneriz.</p>
+          <span class="eyebrow reveal" data-i18n="ct.eyebrow">06 · İletişim</span>
+          <h2 class="h2 reveal" data-i18n="ct.title">Hadi <span class="grad">konuşalım.</span></h2>
+          <p class="lead reveal" data-i18n="ct.lead">İş birliği, basın, yayıncılık ya da sadece selam vermek için. Mutlaka döneriz.</p>
 
           <ul class="contact__list reveal">
-            <li><span>E-posta</span><a href="mailto:nexvorygames@gmail.com">nexvorygames@gmail.com</a></li>
+            <li><span data-i18n="ct.email">E-posta</span><a href="mailto:nexvorygames@gmail.com">nexvorygames@gmail.com</a></li>
           </ul>
 
           <div class="socials reveal">
@@ -498,22 +502,22 @@
 
         <form class="form reveal" id="contactForm" novalidate>
           <div class="form__row">
-            <label>Adın<input name="name" type="text" placeholder="Adın Soyadın" required /></label>
-            <label>E-posta<input name="email" type="email" placeholder="ornek@mail.com" required /></label>
+            <label><span data-i18n="ct.name">Adın</span><input name="name" type="text" placeholder="Adın Soyadın" data-i18n-attr="placeholder:ct.namePh" required /></label>
+            <label><span data-i18n="ct.email">E-posta</span><input name="email" type="email" placeholder="ornek@mail.com" data-i18n-attr="placeholder:ct.emailPh" required /></label>
           </div>
-          <label>Konu
+          <label><span data-i18n="ct.subject">Konu</span>
             <select name="subject" id="subjectSelect">
-              <option>Genel</option>
-              <option>İş Birliği</option>
-              <option>Basın</option>
-              <option>Kariyer: Oyun Programcısı</option>
-              <option>Kariyer: 2D / 3D Sanatçı</option>
-              <option>Kariyer: Oyun Tasarımcısı</option>
-              <option>Kariyer: Açık Başvuru</option>
+              <option value="general" data-i18n="opt.general">Genel</option>
+              <option value="collab" data-i18n="opt.collab">İş Birliği</option>
+              <option value="press" data-i18n="opt.press">Basın</option>
+              <option value="job-dev" data-i18n="opt.dev">Kariyer: Oyun Programcısı</option>
+              <option value="job-art" data-i18n="opt.art">Kariyer: 2D / 3D Sanatçı</option>
+              <option value="job-design" data-i18n="opt.design">Kariyer: Oyun Tasarımcısı</option>
+              <option value="job-open" data-i18n="opt.open">Kariyer: Açık Başvuru</option>
             </select>
           </label>
-          <label>Mesajın<textarea name="message" rows="5" placeholder="Bize neyi anlatmak istersin?" required></textarea></label>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Gönder <span aria-hidden="true">▶</span></button>
+          <label><span data-i18n="ct.message">Mesajın</span><textarea name="message" rows="5" placeholder="Bize neyi anlatmak istersin?" data-i18n-attr="placeholder:ct.messagePh" required></textarea></label>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" data-i18n="ct.send">Gönder <span aria-hidden="true">▶</span></button>
           <p class="form__msg" id="formMsg" role="status"></p>
         </form>
       </div>
@@ -526,24 +530,24 @@
     <div class="container">
       <div class="newsletter reveal" id="newsletter">
         <div>
-          <h3>Bültene katıl</h3>
-          <p>Farmaro Islands ve yeni projelerden ilk sen haberdar ol.</p>
+          <h3 data-i18n="nl.title">Bültene katıl</h3>
+          <p data-i18n="nl.text">Farmaro Islands ve yeni projelerden ilk sen haberdar ol.</p>
         </div>
         <form class="newsletter__form" id="newsletterForm" novalidate>
-          <input type="email" placeholder="E-posta adresin" aria-label="E-posta adresin" required />
-          <button class="btn btn--primary" type="submit">Katıl</button>
+          <input type="email" placeholder="E-posta adresin" aria-label="E-posta adresin" data-i18n-attr="placeholder:nl.ph,aria-label:nl.ph" required />
+          <button class="btn btn--primary" type="submit" data-i18n="nl.join">Katıl</button>
         </form>
       </div>
 
       <div class="footer__mega" aria-hidden="true">NEXVORY</div>
 
       <div class="footer__bottom">
-        <p>© <span id="year">2026</span> NexVory Games. Tüm hakları saklıdır.</p>
+        <p>© <span id="year">2026</span> NexVory Games. <span data-i18n="ft.rights">Tüm hakları saklıdır.</span></p>
         <nav class="footer__links">
-          <a href="#about">Hakkımızda</a>
-          <a href="#games">Oyunlar</a>
-          <a href="#careers">Kariyer</a>
-          <a href="#contact">İletişim</a>
+          <a href="#about" data-i18n="nav.about">Hakkımızda</a>
+          <a href="#games" data-i18n="nav.games">Oyunlar</a>
+          <a href="#careers" data-i18n="nav.careers">Kariyer</a>
+          <a href="#contact" data-i18n="nav.contact">İletişim</a>
         </nav>
         <p class="footer__hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
       </div>
@@ -552,30 +556,30 @@
 
   <!-- ============ FARMARO MODAL ============ -->
   <dialog class="modal" id="farmaroModal" aria-labelledby="farmaroTitle">
-    <button class="modal__close" data-close aria-label="Kapat">✕</button>
+    <button class="modal__close" data-close aria-label="Kapat" data-i18n-attr="aria-label:a11y.close">✕</button>
     <div class="modal__art farmaro-art" id="modalArt"></div>
     <div class="modal__body">
-      <span class="badge badge--soon">Geliştirmede</span>
+      <span class="badge badge--soon" data-i18n="md.badge">Geliştirmede</span>
       <h3 class="farmaro-logo" id="farmaroTitle">Farmaro <span>Islands</span></h3>
-      <p>
+      <p data-i18n="md.p">
         Küçük bir kumsalda tek bir çapayla başlıyorsun. Tarlanı kur, hayvanlarını büyüt,
         teknenle adalar arasında ticaret yap ve haritada olmayan gizemli adanın sırrını çöz.
         İster tek başına, ister arkadaşlarınla.
       </p>
       <ul class="modal__features">
-        <li><span>🌾</span>Derin çiftçilik sistemi</li>
-        <li><span>🏝️</span>Keşfedilecek adalar</li>
-        <li><span>🐄</span>Hayvan dostları</li>
-        <li><span>🤝</span>Arkadaşlarla co-op</li>
-        <li><span>⛵</span>Deniz ticareti</li>
-        <li><span>🌦️</span>Canlı mevsimler</li>
+        <li><span>🌾</span><span data-i18n="md.f1">Derin çiftçilik sistemi</span></li>
+        <li><span>🏝️</span><span data-i18n="md.f2">Keşfedilecek adalar</span></li>
+        <li><span>🐄</span><span data-i18n="md.f3">Hayvan dostları</span></li>
+        <li><span>🤝</span><span data-i18n="md.f4">Arkadaşlarla co-op</span></li>
+        <li><span>⛵</span><span data-i18n="md.f5">Deniz ticareti</span></li>
+        <li><span>🌦️</span><span data-i18n="md.f6">Canlı mevsimler</span></li>
       </ul>
       <div class="modal__meta">
-        <div><small>Tür</small><strong>Çiftlik · Keşif</strong></div>
+        <div><small data-i18n="md.genre">Tür</small><strong data-i18n="md.genreV">Çiftlik · Keşif</strong></div>
         <div><small>Platform</small><strong>PC</strong></div>
-        <div><small>Çıkış</small><strong>Yakında</strong></div>
+        <div><small data-i18n="md.release">Çıkış</small><strong data-i18n="games.soon">Yakında</strong></div>
       </div>
-      <a href="#newsletter" class="btn btn--primary btn--block" data-close>Çıkınca Haber Ver</a>
+      <a href="#newsletter" class="btn btn--primary btn--block" data-close data-i18n="md.cta">Çıkınca Haber Ver</a>
     </div>
   </dialog>
 
@@ -583,12 +587,13 @@
   <div class="achievement" id="achievement" role="status" aria-live="polite">
     <div class="achievement__icon">🏆</div>
     <div>
-      <small>Başarım Kazanıldı</small>
+      <small data-i18n="ach.label">Başarım Kazanıldı</small>
       <strong id="achTitle"></strong>
       <span id="achDesc"></span>
     </div>
   </div>
 
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
