@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexVory Games — Bağımsız Oyun Stüdyosu</title>
+  <meta name="description" content="NexVory Games: PC ve konsollar için akılda kalan oyun dünyaları kuran bağımsız oyun stüdyosu." />
+  <meta name="theme-color" content="#07070d" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ PRELOADER: PRESS START ============ -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__inner">
+      <div class="boot__logo">
+        <span class="boot__mark">N</span>
+        <span>NEXVORY<small>GAMES</small></span>
+      </div>
+      <div class="boot__bar"><span id="bootBar"></span></div>
+      <p class="boot__press" id="bootPress">PRESS START</p>
+    </div>
+  </div>
+
+  <!-- arka plan: uçuşan kol tuşları -->
+  <canvas class="bg-particles" id="particles" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="xp" aria-hidden="true">
+      <span class="xp__fill" id="xpFill"></span>
+    </div>
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="NexVory Games ana sayfa">
+        <span class="brand__mark">N</span>
+        <span class="brand__text">NexVory<small>GAMES</small></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Ana menü">
+        <a href="#about">Hakkımızda</a>
+        <a href="#games">Oyunlar</a>
+        <a href="#services">Ne Yapıyoruz</a>
+        <a href="#journey">Yolculuk</a>
+        <a href="#careers">Kariyer</a>
+        <a href="#contact">İletişim</a>
+      </nav>
+
+      <div class="nav__actions">
+        <span class="xp__label" id="xpLabel">LV 1</span>
+        <a href="#contact" class="btn btn--primary btn--sm">Bize Ulaş</a>
+        <button class="nav__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+      <div class="hero__floor" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="tag reveal"><span class="tag__dot"></span> Bağımsız Oyun Stüdyosu</p>
+          <h1 class="hero__title reveal">
+            Oyna.<br/>
+            <span class="grad">Hisset.</span><br/>
+            Unutma.
+          </h1>
+          <p class="hero__lead reveal">
+            NexVory Games olarak PC ve konsollar için içine girince çıkmak istemeyeceğin
+            oyun dünyaları kuruyoruz. Küçük ekip, büyük tutku.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="#games" class="btn btn--primary btn--lg">Oyunlarımız <span aria-hidden="true">→</span></a>
+            <a href="#careers" class="btn btn--ghost btn--lg">Ekibe Katıl</a>
+          </div>
+          <ul class="hero__platforms reveal" aria-label="Platformlar">
+            <li><span class="ico ico--pc"></span>PC</li>
+            <li><span class="ico ico--console"></span>Konsol</li>
+            <li><span class="ico ico--pad"></span>Co-op</li>
+          </ul>
+        </div>
+
+        <!-- Konsol + kol illüstrasyonu (saf SVG, markasız) -->
+        <div class="hero__art reveal" id="heroArt">
+          <svg viewBox="0 0 700 640" role="img" aria-label="Oyun konsolu ve oyun kolu illüstrasyonu">
+            <defs>
+              <linearGradient id="gBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#25223f"/>
+                <stop offset="1" stop-color="#0c0b18"/>
+              </linearGradient>
+              <linearGradient id="gSide" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#15132a"/>
+                <stop offset="1" stop-color="#07060f"/>
+              </linearGradient>
+              <linearGradient id="gLight" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a78bfa"/>
+                <stop offset=".5" stop-color="#22d3ee"/>
+                <stop offset="1" stop-color="#f472b6"/>
+              </linearGradient>
+              <linearGradient id="gCtrl" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2b2848"/>
+                <stop offset="1" stop-color="#110f20"/>
+              </linearGradient>
+              <radialGradient id="gFloor" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#8b5cf6" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="gDisc" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e0e7ff"/>
+                <stop offset=".35" stop-color="#a5f3fc"/>
+                <stop offset=".6" stop-color="#f5d0fe"/>
+                <stop offset="1" stop-color="#c4b5fd"/>
+              </linearGradient>
+              <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <ellipse cx="370" cy="585" rx="320" ry="44" fill="url(#gFloor)"/>
+
+            <!-- oyun diski -->
+            <g class="layer" data-depth="30">
+              <g class="float float--slow">
+                <circle cx="130" cy="140" r="64" fill="url(#gDisc)" opacity=".9"/>
+                <circle cx="130" cy="140" r="64" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/>
+                <circle cx="130" cy="140" r="18" fill="#0c0b18"/>
+                <circle cx="130" cy="140" r="26" fill="none" stroke="rgba(12,11,24,.25)" stroke-width="6"/>
+                <path d="M88 110 A52 52 0 0 1 150 92" stroke="#fff" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>
+              </g>
+            </g>
+
+            <!-- konsol kasası -->
+            <g class="layer" data-depth="14">
+              <g class="float">
+                <polygon points="565,72 612,100 612,500 565,522" fill="url(#gSide)"/>
+                <rect x="360" y="70" width="205" height="452" rx="24" fill="url(#gBody)" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
+                <rect x="458" y="104" width="7" height="340" rx="3.5" fill="url(#gLight)" filter="url(#fGlow)" class="strip"/>
+                <rect x="382" y="150" width="58" height="4" rx="2" fill="rgba(255,255,255,.14)"/>
+                <circle cx="398" cy="112" r="7" fill="#22d3ee" filter="url(#fGlow)" class="power"/>
+                <text x="530" y="124" fill="rgba(255,255,255,.35)" font-family="Unbounded, sans-serif" font-weight="700" font-size="20" text-anchor="middle">N</text>
+                <g fill="rgba(255,255,255,.07)">
+                  <rect x="384" y="462" width="160" height="3" rx="1.5"/>
+                  <rect x="384" y="472" width="160" height="3" rx="1.5"/>
+                  <rect x="384" y="482" width="160" height="3" rx="1.5"/>
+                  <rect x="384" y="492" width="160" height="3" rx="1.5"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- oyun kolu -->
+            <g class="layer" data-depth="26">
+              <g transform="translate(28 252) scale(.95)">
+                <g class="float float--ctrl">
+                  <path d="M120 98 Q150 66 214 76" stroke="#3a3660" stroke-width="12" fill="none" stroke-linecap="round"/>
+                  <path d="M480 98 Q450 66 386 76" stroke="#3a3660" stroke-width="12" fill="none" stroke-linecap="round"/>
+                  <path d="M150 90 Q300 72 450 90 C490 90 520 110 535 160 L570 290 C582 340 550 375 510 360 C480 348 460 310 435 280 L165 280 C140 310 120 348 90 360 C50 375 18 340 30 290 L65 160 C80 110 110 90 150 90 Z"
+                        fill="url(#gCtrl)" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+                  <path d="M150 92 Q300 74 450 92" stroke="url(#gLight)" stroke-width="4" fill="none" filter="url(#fGlow)" stroke-linecap="round" class="strip"/>
+
+                  <!-- d-pad -->
+                  <g transform="translate(165 172)" fill="#37335a">
+                    <rect x="-13" y="-38" width="26" height="76" rx="6"/>
+                    <rect x="-38" y="-13" width="76" height="26" rx="6"/>
+                    <circle r="6" fill="#2a2746"/>
+                  </g>
+
+                  <!-- yüz tuşları (tıklanabilir) -->
+                  <g class="face-btns">
+                    <circle class="fbtn" cx="435" cy="134" r="16" fill="#22d3ee" filter="url(#fGlow)"/>
+                    <circle class="fbtn" cx="471" cy="170" r="16" fill="#f472b6" filter="url(#fGlow)"/>
+                    <circle class="fbtn" cx="435" cy="206" r="16" fill="#a3e635" filter="url(#fGlow)"/>
+                    <circle class="fbtn" cx="399" cy="170" r="16" fill="#a78bfa" filter="url(#fGlow)"/>
+                  </g>
+
+                  <!-- analog çubuklar -->
+                  <g class="stick" data-stick>
+                    <circle cx="238" cy="242" r="38" fill="#0a0914" stroke="#37335a" stroke-width="3"/>
+                    <circle class="stick__top" cx="238" cy="242" r="26" fill="#25223f" stroke="rgba(255,255,255,.1)" stroke-width="2"/>
+                  </g>
+                  <g class="stick" data-stick>
+                    <circle cx="362" cy="242" r="38" fill="#0a0914" stroke="#37335a" stroke-width="3"/>
+                    <circle class="stick__top" cx="362" cy="242" r="26" fill="#25223f" stroke="rgba(255,255,255,.1)" stroke-width="2"/>
+                  </g>
+
+                  <!-- orta logo -->
+                  <rect x="246" y="122" width="30" height="10" rx="5" fill="#37335a"/>
+                  <rect x="324" y="122" width="30" height="10" rx="5" fill="#37335a"/>
+                  <circle cx="300" cy="170" r="21" fill="#0a0914" stroke="url(#gLight)" stroke-width="2.5"/>
+                  <text x="300" y="177" fill="#fff" font-family="Unbounded, sans-serif" font-weight="700" font-size="17" text-anchor="middle">N</text>
+                </g>
+              </g>
+            </g>
+
+            <!-- uçuşan tuş simgeleri -->
+            <g class="layer" data-depth="40" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <g class="float float--fast"><path d="M620 40 l18 30 h-36z" stroke="#22d3ee"/></g>
+              <g class="float float--slow"><circle cx="300" cy="44" r="14" stroke="#f472b6"/></g>
+              <g class="float"><path d="M40 330 l22 22 M62 330 l-22 22" stroke="#a78bfa"/></g>
+              <g class="float float--fast"><rect x="640" y="250" width="26" height="26" rx="4" stroke="#a3e635"/></g>
+            </g>
+          </svg>
+          <p class="hero__art-hint">Tuşlara basmayı dene 🎮</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>PC</span><i>◆</i><span>KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span>OYUN TASARIMI</span><i>◆</i><span>SANAT</span><i>◆</i><span>MÜZİK</span><i>◆</i><span>TOPLULUK</span><i>◆</i>
+        <span>PC</span><i>◆</i><span>KONSOL</span><i>◆</i><span>CO-OP</span><i>◆</i><span>INDIE</span><i>◆</i><span>OYUN TASARIMI</span><i>◆</i><span>SANAT</span><i>◆</i><span>MÜZİK</span><i>◆</i><span>TOPLULUK</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <span class="eyebrow reveal">01 · Hakkımızda</span>
+          <h2 class="h2 reveal">Oyunları <span class="grad">oyuncu olarak</span> yapıyoruz.</h2>
+          <p class="reveal">
+            NexVory Games, oyun oynamayı oyun yapmak kadar seven bir ekibin kurduğu bağımsız bir
+            stüdyo. Çocukken saatlerce başından kalkamadığımız oyunların verdiği hissi bugünün
+            oyuncularına yaşatmak istiyoruz.
+          </p>
+          <p class="reveal">
+            Her projede aynı soruyu soruyoruz: <strong>"Bunu biz oynamak ister miydik?"</strong>
+            Cevap evet değilse, tekrar çizim masasına dönüyoruz.
+          </p>
+        </div>
+
+        <div class="about__stats">
+          <div class="stat reveal"><strong><span data-count="1">0</span></strong><span>Yolda olan oyun</span></div>
+          <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><span>Bağımsız</span></div>
+          <div class="stat reveal"><strong>∞</strong><span>Fikir defteri</span></div>
+          <div class="stat reveal"><strong>24/7</strong><span>Kahve makinesi</span></div>
+        </div>
+      </div>
+
+      <div class="container values">
+        <article class="value reveal">
+          <span class="value__no">A</span>
+          <h3>Önce eğlence</h3>
+          <p>Her mekanik önce bizi eğlendirmeli. Eğlendirmiyorsa oyunda yeri yok.</p>
+        </article>
+        <article class="value reveal">
+          <span class="value__no">B</span>
+          <h3>Zanaat</h3>
+          <p>Küçük detaylar büyük farklar yaratır. Bir tuşun hissine bile kafa yorarız.</p>
+        </article>
+        <article class="value reveal">
+          <span class="value__no">X</span>
+          <h3>Topluluk</h3>
+          <p>Oyunlarımızı oyuncularla birlikte büyütür, geri bildirimi kalbimize koyarız.</p>
+        </article>
+        <article class="value reveal">
+          <span class="value__no">Y</span>
+          <h3>Dürüstlük</h3>
+          <p>Kazanmak için öde yok, karanlık tasarım yok. Sadece iyi oyunlar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GAMES ============ -->
+    <section class="section games" id="games">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">02 · Oyunlar</span>
+          <h2 class="h2 reveal">Neler <span class="grad">pişiyor?</span></h2>
+        </div>
+
+        <div class="games__grid">
+          <!-- Farmaro Islands -->
+          <article class="game-card game-card--featured reveal" id="farmaroCard">
+            <div class="game-card__art farmaro-art">
+              <svg viewBox="0 0 480 270" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="fSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#1b74a8"/>
+                    <stop offset=".6" stop-color="#5cc3df"/>
+                    <stop offset="1" stop-color="#ffd9a0"/>
+                  </linearGradient>
+                </defs>
+                <rect width="480" height="270" fill="url(#fSky)"/>
+                <circle cx="240" cy="170" r="60" fill="#ffe08a" opacity=".85"/>
+                <g fill="#fff" opacity=".85">
+                  <ellipse cx="90" cy="60" rx="38" ry="12"/><ellipse cx="108" cy="52" rx="20" ry="13"/>
+                  <ellipse cx="380" cy="80" rx="30" ry="9"/><ellipse cx="392" cy="73" rx="16" ry="10"/>
+                </g>
+                <ellipse cx="240" cy="214" rx="150" ry="20" fill="#f4d79b"/>
+                <path d="M100 212 Q130 150 210 146 Q290 136 350 160 Q385 180 382 212Z" fill="#4cc26e"/>
+                <g transform="translate(180 168) skewX(-18)">
+                  <rect width="80" height="26" rx="4" fill="#9a642f"/>
+                  <rect y="6" width="80" height="4" fill="#7b4c22"/><rect y="16" width="80" height="4" fill="#7b4c22"/>
+                </g>
+                <g transform="translate(272 146)">
+                  <rect y="12" width="44" height="30" fill="#d94f3d"/>
+                  <polygon points="-5,14 22,-6 49,14" fill="#8c2f25"/>
+                  <rect x="15" y="24" width="14" height="18" fill="#f6efe2"/>
+                </g>
+                <path d="M130 210 Q126 175 138 140" stroke="#8b5e34" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <g transform="translate(138 140)" fill="#2f9e57">
+                  <path d="M0 0 Q-24 -12 -42 6 Q-20 -3 0 0Z"/><path d="M0 0 Q24 -15 42 4 Q20 -5 0 0Z"/>
+                  <path d="M0 0 Q-8 -26 -26 -32 Q-7 -17 0 0Z"/><path d="M0 0 Q12 -26 30 -29 Q9 -16 0 0Z"/>
+                </g>
+                <path d="M0 222 Q30 214 60 222 T120 222 T180 222 T240 222 T300 222 T360 222 T420 222 T480 222 V270 H0Z" fill="#1797b3"/>
+                <path d="M0 238 Q30 230 60 238 T120 238 T180 238 T240 238 T300 238 T360 238 T420 238 T480 238 V270 H0Z" fill="#0f6f93"/>
+              </svg>
+              <span class="badge badge--soon">Yakında</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="farmaro-logo">Farmaro <span>Islands</span></h3>
+              <p>
+                Fırtınanın ardından terk edilmiş bir takımadayı tohum tohum yeniden canlandır.
+                Çiftlik, keşif ve arkadaşlarınla co-op dolu, sıcacık bir ada macerası.
+              </p>
+              <ul class="chips">
+                <li>Çiftlik</li><li>Keşif</li><li>Co-op</li><li>PC</li>
+              </ul>
+              <div class="game-card__actions">
+                <button class="btn btn--primary" id="openFarmaro">Detayları Gör</button>
+                <a href="#newsletter" class="btn btn--ghost">Haberdar Ol</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gizli proje -->
+          <article class="game-card game-card--locked reveal">
+            <div class="game-card__art locked-art">
+              <div class="locked-art__noise"></div>
+              <span class="locked-art__icon">🔒</span>
+              <span class="badge">Gizli</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="glitch" data-text="PROJE ███">PROJE ███</h3>
+              <p>Henüz duyurmadık. Ama ipucu verelim: ışıklar kapalıyken oynanmalı. 👀</p>
+              <ul class="chips"><li>???</li><li>???</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">03 · Ne Yapıyoruz</span>
+          <h2 class="h2 reveal">Fikirden <span class="grad">konsola</span> kadar.</h2>
+          <p class="lead reveal">Bir oyunu ilk eskizden çıkış gününe kadar ekip içinde, kendi ellerimizle geliştiriyoruz.</p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6 L42 16 V32 L24 42 L6 32 V16Z"/><path d="M24 6 V42 M6 16 L42 32 M42 16 L6 32"/></svg>
+            <h3>Oyun Tasarımı</h3>
+            <p>Mekanikler, ekonomi, seviye tasarımı ve "bir tur daha" hissini yaratan döngüler.</p>
+          </article>
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="17" cy="19" r="3"/><circle cx="28" cy="15" r="3"/><circle cx="33" cy="25" r="3"/><path d="M22 41 Q20 32 27 31"/></svg>
+            <h3>Sanat &amp; Animasyon</h3>
+            <p>Karakterler, dünyalar, arayüz ve her kareye karakter katan animasyonlar.</p>
+          </article>
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 14 L6 24 L16 34"/><path d="M32 14 L42 24 L32 34"/><path d="M27 10 L21 38"/></svg>
+            <h3>Programlama</h3>
+            <p>Oynanış sistemleri, araçlar ve her platformda akıcı çalışan performanslı kod.</p>
+          </article>
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M18 34 V10 L38 6 V30"/><circle cx="13" cy="34" r="5"/><circle cx="33" cy="30" r="5"/></svg>
+            <h3>Ses &amp; Müzik</h3>
+            <p>Dünyayı nefes alır hale getiren ses tasarımı ve akılda kalan müzikler.</p>
+          </article>
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="18" r="6"/><circle cx="32" cy="18" r="6"/><path d="M6 38 Q6 28 16 28 Q22 28 24 32 Q26 28 32 28 Q42 28 42 38"/></svg>
+            <h3>Çok Oyunculu</h3>
+            <p>Arkadaşlarla birlikte oynanınca katlanan eğlence için co-op ve online altyapı.</p>
+          </article>
+          <article class="service reveal" data-tilt>
+            <svg class="service__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 16 H34 Q42 16 43 26 L44 33 Q45 39 39 38 Q36 37 33 32 H15 Q12 37 9 38 Q3 39 4 33 L5 26 Q6 16 14 16Z"/><path d="M14 22 V28 M11 25 H17"/><circle cx="33" cy="23" r="1.5"/><circle cx="36" cy="27" r="1.5"/></svg>
+            <h3>PC &amp; Konsol</h3>
+            <p>Klavye-fare ve kol desteğiyle, büyük ekranda da elde de rahat oynanan oyunlar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="section journey" id="journey">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">04 · Yolculuk</span>
+          <h2 class="h2 reveal">Level by <span class="grad">level.</span></h2>
+        </div>
+
+        <ol class="levels">
+          <li class="level is-done reveal">
+            <span class="level__no">LV 1</span>
+            <h3>Stüdyo kuruldu</h3>
+            <p>Bir avuç oyun aşığı, bir fikir defteri ve bitmek bilmeyen kahve.</p>
+            <span class="level__state">✓ Tamamlandı</span>
+          </li>
+          <li class="level is-done reveal">
+            <span class="level__no">LV 2</span>
+            <h3>İlk prototipler</h3>
+            <p>Onlarca fikir denendi, en iyisi seçildi: Farmaro Islands doğdu.</p>
+            <span class="level__state">✓ Tamamlandı</span>
+          </li>
+          <li class="level is-active reveal">
+            <span class="level__no">LV 3</span>
+            <h3>Farmaro geliştirmede</h3>
+            <p>Adalar, çiftlik sistemleri ve co-op altyapısı üzerinde çalışıyoruz.</p>
+            <span class="level__state">▶ Şu an buradayız</span>
+          </li>
+          <li class="level reveal">
+            <span class="level__no">LV 4</span>
+            <h3>Çıkış &amp; ötesi</h3>
+            <p>Farmaro'yu oyuncularla buluşturmak ve gizli projeyi açığa çıkarmak.</p>
+            <span class="level__state">🔒 Kilitli</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CAREERS ============ -->
+    <section class="section careers" id="careers">
+      <div class="container">
+        <div class="careers__box">
+          <div class="careers__intro">
+            <span class="eyebrow reveal">05 · Kariyer</span>
+            <h2 class="h2 reveal">Player 2 <span class="grad">aranıyor.</span></h2>
+            <p class="lead reveal">
+              Oyun yapmayı seven, öğrenmeye aç ve takım oyununa inanan insanlarla çalışmak istiyoruz.
+              Aşağıda aradığın rolü göremiyorsan yine de yaz.
+            </p>
+          </div>
+
+          <ul class="jobs">
+            <li class="job reveal">
+              <div><h3>Oyun Programcısı</h3><p>Oynanış sistemleri · Co-op</p></div>
+              <span class="job__type">Tam zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="Kariyer: Oyun Programcısı">Başvur →</a>
+            </li>
+            <li class="job reveal">
+              <div><h3>2D / 3D Sanatçı</h3><p>Çevre &amp; karakter</p></div>
+              <span class="job__type">Tam zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="Kariyer: 2D / 3D Sanatçı">Başvur →</a>
+            </li>
+            <li class="job reveal">
+              <div><h3>Oyun Tasarımcısı</h3><p>Ekonomi · Seviye tasarımı</p></div>
+              <span class="job__type">Yarı zamanlı</span>
+              <a class="job__apply" href="#contact" data-subject="Kariyer: Oyun Tasarımcısı">Başvur →</a>
+            </li>
+            <li class="job job--open reveal">
+              <div><h3>Açık Başvuru</h3><p>Kendini bize anlat</p></div>
+              <span class="job__type">Her zaman</span>
+              <a class="job__apply" href="#contact" data-subject="Kariyer: Açık Başvuru">Yaz →</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <span class="eyebrow reveal">06 · İletişim</span>
+          <h2 class="h2 reveal">Hadi <span class="grad">konuşalım.</span></h2>
+          <p class="lead reveal">İş birliği, basın, yayıncılık ya da sadece selam vermek için. Mutlaka döneriz.</p>
+
+          <ul class="contact__list reveal">
+            <li><span>E-posta</span><a href="mailto:nexvorygames@gmail.com">nexvorygames@gmail.com</a></li>
+          </ul>
+
+          <div class="socials reveal">
+            <a href="#" aria-label="X / Twitter">X</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Discord">DC</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="form__row">
+            <label>Adın<input name="name" type="text" placeholder="Adın Soyadın" required /></label>
+            <label>E-posta<input name="email" type="email" placeholder="ornek@mail.com" required /></label>
+          </div>
+          <label>Konu
+            <select name="subject" id="subjectSelect">
+              <option>Genel</option>
+              <option>İş Birliği</option>
+              <option>Basın</option>
+              <option>Kariyer: Oyun Programcısı</option>
+              <option>Kariyer: 2D / 3D Sanatçı</option>
+              <option>Kariyer: Oyun Tasarımcısı</option>
+              <option>Kariyer: Açık Başvuru</option>
+            </select>
+          </label>
+          <label>Mesajın<textarea name="message" rows="5" placeholder="Bize neyi anlatmak istersin?" required></textarea></label>
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Gönder <span aria-hidden="true">▶</span></button>
+          <p class="form__msg" id="formMsg" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="newsletter reveal" id="newsletter">
+        <div>
+          <h3>Bültene katıl</h3>
+          <p>Farmaro Islands ve yeni projelerden ilk sen haberdar ol.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <input type="email" placeholder="E-posta adresin" aria-label="E-posta adresin" required />
+          <button class="btn btn--primary" type="submit">Katıl</button>
+        </form>
+      </div>
+
+      <div class="footer__mega" aria-hidden="true">NEXVORY</div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> NexVory Games. Tüm hakları saklıdır.</p>
+        <nav class="footer__links">
+          <a href="#about">Hakkımızda</a>
+          <a href="#games">Oyunlar</a>
+          <a href="#careers">Kariyer</a>
+          <a href="#contact">İletişim</a>
+        </nav>
+        <p class="footer__hint">↑ ↑ ↓ ↓ ← → ← → B A</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FARMARO MODAL ============ -->
+  <dialog class="modal" id="farmaroModal" aria-labelledby="farmaroTitle">
+    <button class="modal__close" data-close aria-label="Kapat">✕</button>
+    <div class="modal__art farmaro-art" id="modalArt"></div>
+    <div class="modal__body">
+      <span class="badge badge--soon">Geliştirmede</span>
+      <h3 class="farmaro-logo" id="farmaroTitle">Farmaro <span>Islands</span></h3>
+      <p>
+        Küçük bir kumsalda tek bir çapayla başlıyorsun. Tarlanı kur, hayvanlarını büyüt,
+        teknenle adalar arasında ticaret yap ve haritada olmayan gizemli adanın sırrını çöz.
+        İster tek başına, ister arkadaşlarınla.
+      </p>
+      <ul class="modal__features">
+        <li><span>🌾</span>Derin çiftçilik sistemi</li>
+        <li><span>🏝️</span>Keşfedilecek adalar</li>
+        <li><span>🐄</span>Hayvan dostları</li>
+        <li><span>🤝</span>Arkadaşlarla co-op</li>
+        <li><span>⛵</span>Deniz ticareti</li>
+        <li><span>🌦️</span>Canlı mevsimler</li>
+      </ul>
+      <div class="modal__meta">
+        <div><small>Tür</small><strong>Çiftlik · Keşif</strong></div>
+        <div><small>Platform</small><strong>PC</strong></div>
+        <div><small>Çıkış</small><strong>Yakında</strong></div>
+      </div>
+      <a href="#newsletter" class="btn btn--primary btn--block" data-close>Çıkınca Haber Ver</a>
+    </div>
+  </dialog>
+
+  <!-- başarım bildirimi -->
+  <div class="achievement" id="achievement" role="status" aria-live="polite">
+    <div class="achievement__icon">🏆</div>
+    <div>
+      <small>Başarım Kazanıldı</small>
+      <strong id="achTitle"></strong>
+      <span id="achDesc"></span>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
